@@ -20,12 +20,11 @@ const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const COOKIE = process.env.YT_COOKIE;
 
-console.log(COOKIE);
-
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
   ],
 });
 
@@ -33,7 +32,7 @@ client.distube = new DisTube(client, {
   leaveOnEmpty: true,
   emitNewSongOnly: true,
   nsfw: true,
-  youtubeCookie: process.env.YT_COOKIE,
+  youtubeCookie: COOKIE,
   plugins: [new YtDlpPlugin()],
 })
 
@@ -92,11 +91,16 @@ client.on(Events.InteractionCreate, async interaction => {
     "stop",
   ]
 
-  const command = interaction.client.commands.get(interaction.commandName);
+  const commandName = interaction.commandName;
+  const command = interaction.client.commands.get(commandName);
 
   try {
-    if (musicCommands.includes(interaction.commandName)) {
+    if (musicCommands.includes(commandName) || commandName === "play") {
+      await presence.verifyCommands(command, interaction);
+
+    } else if (musicCommands.includes(commandName)) {
       await presence.verifyPresence(command, interaction);
+
     } else {
       await command.execute(interaction);
     }

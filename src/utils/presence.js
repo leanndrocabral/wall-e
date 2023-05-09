@@ -3,13 +3,35 @@ class Presence {
   async verifyPresence(command, interaction) {
     const { member, client } = interaction;
 
-    if (!member.voice.channel) {
+    const memberVoiceChannel = member.voice.channel;
+
+    if (!memberVoiceChannel) {
       await interaction.reply("Você não está em nenhum canal de voz do servidor.");
 
     } else if (client.voice.adapters.size < 1) {
-      await interaction.reply("Eu não está em nenhum canal de voz do servidor.");
+      await interaction.reply("Eu não estou em nenhum canal de voz do servidor.");
+
     }
     else {
+      await command.execute(interaction);
+    }
+  }
+
+  async verifyCommands(command, interaction) {
+    const { member, client, guildId } = interaction;
+
+    const queue = client.distube.getQueue(guildId);
+    const voiceChannelId = queue?.voiceChannel.id;
+
+    const memberVoiceChannel = member.voice.channel;
+
+    if (!voiceChannelId) {
+      await command.execute(interaction);
+
+    } else if (voiceChannelId !== memberVoiceChannel.id) {
+      await interaction.reply("Não é possível usar este comando pois estou em outro canal de voz.");
+
+    } else {
       await command.execute(interaction);
     }
   }

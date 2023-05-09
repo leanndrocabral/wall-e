@@ -17,7 +17,6 @@ module.exports = {
       await interaction.reply({ embeds: [embed] });
 
     } catch (error) {
-      console.log(error);
       await interaction.reply("Não há nenhuma música na fila.");
     }
   },
