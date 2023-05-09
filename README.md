@@ -34,7 +34,7 @@ CLIENT_ID=
 # Acessando a aba Bot no site
 DISCORD_TOKEN=
 
-# Abra a extensão no Youtube copie a chave e o valor de "__Secure-3PSID"
+# Abra a extensão no site Youtube copie a chave e o valor de "__Secure-3PSID"
 YT_COOKIE=
 ```
 
