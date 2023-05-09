@@ -28,13 +28,13 @@ $ yarn add
 <a href="https://discord.com/developers/applications" target="_blank">Discord Developers</a> e crie sua aplicação, instale a extensão <a href="https://chrome.google.com/webstore/detail/open-cookiestxt/gdocmgbfkjnnpapoeobnolbbkoibbcif" target="_blank">Get Cookies.txt</a> no seu navegador. Em seguida na raiz do repositório, crie um arquivo chamado <span style="color:#0099ff">.dotenv</span>, nele irá conter as seguintes variáveis:</p>
 
 ```
-# Acessando a aba OAuth2 no site
+# Acessando a aba OAuth2 no site Discord Developers
 CLIENT_ID= 
 
-# Acessando a aba Bot no site
+# Acessando a aba Bot no site Discord Developers
 DISCORD_TOKEN=
 
-# Abra a extensão no Youtube copie a chave e o valor de "__Secure-3PSID"
+# Abra a extensão no site Youtube, copie a chave e o valor de "__Secure-3PSID"
 YT_COOKIE=
 ```
 
