@@ -95,11 +95,12 @@ client.on(Events.InteractionCreate, async interaction => {
   const command = interaction.client.commands.get(commandName);
 
   try {
-    if (musicCommands.includes(commandName) || commandName === "play") {
-      await presence.verifyCommands(command, interaction);
 
-    } else if (musicCommands.includes(commandName)) {
+    if (musicCommands.includes(commandName)) {
       await presence.verifyPresence(command, interaction);
+
+    } else if (commandName === "play") {
+      await presence.verifyCommands(command, interaction);
 
     } else {
       await command.execute(interaction);

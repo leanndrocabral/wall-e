@@ -13,7 +13,7 @@ class Presence {
 
     }
     else {
-      await command.execute(interaction);
+      await this.verifyCommands(command, interaction);
     }
   }
 
