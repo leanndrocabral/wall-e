@@ -29,7 +29,7 @@ class Presence {
       await command.execute(interaction);
 
     } else if (voiceChannelId !== memberVoiceChannel.id) {
-      await interaction.reply("Não é possível usar este comando pois estou em outro canal de voz.");
+      await interaction.reply("Não é possível utilizar este comando pois estou em outro canal de voz.");
 
     } else {
       await command.execute(interaction);

@@ -95,7 +95,6 @@ client.on(Events.InteractionCreate, async interaction => {
   const command = interaction.client.commands.get(commandName);
 
   try {
-
     if (musicCommands.includes(commandName)) {
       await presence.verifyPresence(command, interaction);
 
