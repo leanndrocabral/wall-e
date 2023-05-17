@@ -6,7 +6,7 @@ class Embeds {
   songInfo(name, thumbnail, url, views, formattedDuration) {
 
     return new EmbedBuilder()
-      .setColor(0xed4245)
+      .setColor(0xED4245)
       .setDescription(name)
       .setThumbnail(thumbnail)
       .addFields(
@@ -24,7 +24,7 @@ class Embeds {
     ).join("\n");
 
     return new EmbedBuilder()
-      .setColor(0xed4245)
+      .setColor(0xED4245)
       .setTitle("Tocando Agora:")
       .setDescription(name)
       .setThumbnail(thumbnail)
@@ -34,8 +34,17 @@ class Embeds {
       .addFields({ name: " ", value: playlist })
       .setFooter({ text: "Bee", iconURL: this.beeImage });
   }
+
+  miscellaneous(gif, description) {
+
+    return new EmbedBuilder()
+      .setColor(0xFEE75C)
+      .setDescription(description)
+      .setImage(gif)
+      .setFooter({ text: "Bee", iconURL: this.beeImage });
+  }
 }
 
 const embedGen = new Embeds();
 
-module.exports = { embedGen };
+module.exports = embedGen;

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { embedGen } = require("../../utils/embeds");
+const embedGen = require("../../utils/embeds");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
       await interaction.reply({ content: "Pulando...", embeds: [embed] });
 
     } catch (error) {
-      await interaction.reply("Não há música próxima música na fila.");
+      await interaction.reply("Não há próxima música na fila.");
     }
   },
 };

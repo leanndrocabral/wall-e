@@ -14,7 +14,7 @@ const {
 const { DisTube } = require('distube');
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 
-const { presence } = require("./utils/presence");
+const presence  = require("./utils/presence");
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
