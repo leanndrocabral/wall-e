@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { embedGen } = require("../../utils/embeds");
+const embedGen = require("../../utils/embeds");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -15,7 +15,6 @@ module.exports = {
   async execute(interaction) {
     try {
       const { client, guildId, options } = interaction;
-
       const position = options.getInteger("posição");
 
       const jumpedSong = await client.distube.getQueue(guildId).jump(position - 1);

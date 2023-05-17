@@ -39,4 +39,4 @@ class Presence {
 
 const presence = new Presence();
 
-module.exports = { presence };
+module.exports = presence;

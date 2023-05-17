@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { embedGen } = require("../../utils/embeds");
+const embedGen = require("../../utils/embeds");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,7 +14,6 @@ module.exports = {
   async execute(interaction) {
     try {
       const { channel, member, options, client } = interaction;
-
       const linkOrName = options.getString("link-ou-nome");
 
       const [result] = await client.distube.search(linkOrName, { limit: 1 });
@@ -30,6 +29,7 @@ module.exports = {
       await interaction.reply({ embeds: [embed] });
 
     } catch (error) {
+      console.log(error);
       await interaction.reply("Nenhum resultado encontrado.");
     }
   },
