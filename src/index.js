@@ -9,12 +9,13 @@ const {
   Routes,
   Events,
   Collection,
-  ActivityType
+  ActivityType,
 } = require("discord.js");
-const { DisTube } = require('distube');
+const { DisTube } = require("distube");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 
-const presence  = require("./utils/presence");
+const presence = require("./utils/presence");
+const embedGen = require("./utils/embeds");
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -25,16 +26,18 @@ const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildPresences,
-  ],
+    GatewayIntentBits.GuildMessageReactions,
+  ]
 });
 
 client.distube = new DisTube(client, {
   leaveOnEmpty: true,
   emitNewSongOnly: true,
   nsfw: true,
+  ytdlOptions: { filter: "audioonly" },
   youtubeCookie: COOKIE,
   plugins: [new YtDlpPlugin()],
-})
+}).setMaxListeners(2);
 
 const commands = [];
 client.commands = new Collection();
@@ -71,7 +74,7 @@ for (const folder of commandFolders) {
   }
 })();
 
-client.on('ready', () => {
+client.on("ready", () => {
   client.user.setActivity({ name: "Tomando um café...", type: ActivityType.Playing });
 
   console.log(`Logged in as ${client.user.tag}!`);
@@ -81,6 +84,7 @@ client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
   const musicCommands = [
+    "play",
     "jump",
     "loop",
     "pause",
@@ -97,10 +101,7 @@ client.on(Events.InteractionCreate, async interaction => {
   try {
     if (musicCommands.includes(commandName)) {
       await presence.verifyPresence(command, interaction);
-
-    } else if (commandName === "play") {
-      await presence.verifyCommands(command, interaction);
-
+      
     } else {
       await command.execute(interaction);
     }
@@ -110,3 +111,16 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.login(TOKEN);
+
+client.distube.on("addSong", async (queue, song) => {
+  const { name, thumbnail, url, views, formattedDuration } = song;
+  const embed = embedGen.songInfo(name, thumbnail, url, views, formattedDuration);
+  queue.textChannel.send({ embeds: [embed] });
+
+}).on("addList", (queue, playlist) => {
+  const views = playlist.songs.reduce((acc, cur) => cur.views + acc, 0);
+  const { name, thumbnail, url, formattedDuration } = playlist;
+
+  const embed = embedGen.songInfo(name, thumbnail, url, views, formattedDuration);
+  queue.textChannel.send({ embeds: [embed] });
+});

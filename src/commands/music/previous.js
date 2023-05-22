@@ -10,8 +10,8 @@ module.exports = {
     try {
       const { client, guildId } = interaction;
 
-      const nextSong = await client.distube.skip(guildId);
-      const { name, thumbnail, url, views, formattedDuration } = nextSong;
+      const previousSong = await client.distube.previous(guildId);
+      const { name, thumbnail, url, views, formattedDuration } = previousSong;
 
       const embed = embedGen.songInfo(name, thumbnail, url, views, formattedDuration);
       await interaction.reply({ content: "Retornando...", embeds: [embed] });

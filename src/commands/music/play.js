@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require("discord.js");
-const embedGen = require("../../utils/embeds");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -11,25 +10,20 @@ module.exports = {
         .setDescription("Link ou nome da música.")
         .setRequired(true)
     ),
+
   async execute(interaction) {
     try {
       const { channel, member, options, client } = interaction;
       const linkOrName = options.getString("link-ou-nome");
 
-      const [result] = await client.distube.search(linkOrName, { limit: 1 });
-      const { name, thumbnail, url, views, formattedDuration } = result;
-
       client.distube.play(
         member.voice.channel,
-        url,
+        linkOrName,
         { textChannel: channel, member: member }
       );
-
-      const embed = embedGen.songInfo(name, thumbnail, url, views, formattedDuration);
-      await interaction.reply({ embeds: [embed] });
+      await interaction.reply("Adicionando...");
 
     } catch (error) {
-      console.log(error);
       await interaction.reply("Nenhum resultado encontrado.");
     }
   },

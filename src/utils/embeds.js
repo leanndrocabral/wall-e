@@ -17,10 +17,9 @@ class Embeds {
       .setFooter({ text: "Bee", iconURL: this.beeImage });
   }
 
-  playlist(name, thumbnail, url, queue) {
-
+  queueInfo(name, thumbnail, url, queue, index = 0) {
     const playlist = queue.map((song, id) =>
-      `**${id + 1}.** [ ${song.name} ] - \`${song.formattedDuration}\``
+      `**${id + index + 1}.** [ ${song.name} ] - \`${song.formattedDuration}\``
     ).join("\n");
 
     return new EmbedBuilder()
