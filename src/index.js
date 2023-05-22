@@ -31,10 +31,8 @@ const client = new Client({
 });
 
 client.distube = new DisTube(client, {
-  leaveOnEmpty: true,
-  emitNewSongOnly: true,
   nsfw: true,
-  ytdlOptions: { filter: "audioonly" },
+  leaveOnEmpty: true,
   youtubeCookie: COOKIE,
   plugins: [new YtDlpPlugin()],
 }).setMaxListeners(2);
@@ -101,7 +99,7 @@ client.on(Events.InteractionCreate, async interaction => {
   try {
     if (musicCommands.includes(commandName)) {
       await presence.verifyPresence(command, interaction);
-      
+
     } else {
       await command.execute(interaction);
     }

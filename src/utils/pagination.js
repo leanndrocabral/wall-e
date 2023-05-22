@@ -9,7 +9,7 @@ class Pagination {
     const collectorFilter = (reaction, user) => {
       return ["⏪", "⏩"].includes(reaction.emoji.name) && user.id === interaction.user.id;
     };
-    const collected = message.createReactionCollector({ filter: collectorFilter });
+    const collected = message.createReactionCollector({ filter: collectorFilter, time: 150000 });
 
     collected.on("collect", async (reaction) => {
       const take = client.guilds.cache.get("take");
@@ -22,7 +22,7 @@ class Pagination {
           const embed = embedGen.queueInfo(name, thumbnail, url, page, index);
           await interaction.editReply({ embeds: [embed] });
         } else {
-          client.guilds.cache.set("take", take - 5);
+          client.guilds.cache.set("take", take);
         }
       } else {
         const index = client.guilds.cache.set("take", take - 5).get("take");
@@ -32,7 +32,7 @@ class Pagination {
           const embed = embedGen.queueInfo(name, thumbnail, url, page, index);
           await interaction.editReply({ embeds: [embed] });
         } else {
-          client.guilds.cache.set("take", take + 5);
+          client.guilds.cache.set("take", take);
         }
       }
     });
