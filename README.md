@@ -1,4 +1,4 @@
-<h1 align= "center"Wall-e</h1>
+<h1 align= "center">Wall-e</h1>
 
 <h2 align= "center">Inicializando a aplicação</h2>
 
@@ -7,7 +7,7 @@
 <p>Primeiro clone o repositório utilizando o comando:</p>
 
 ```bash
-$ git clone https://github.com/leanndrocabral/bee-bot
+$ git clone https://github.com/leanndrocabral/wall-e
 ```
 
 <p>Abra o repositório e no terminal instale as depedências utilizando:</p>
