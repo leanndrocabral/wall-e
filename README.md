@@ -1,4 +1,4 @@
-<h1 align= "center">Bee Bot</h1>
+<h1 align= "center"Wall-e</h1>
 
 <h2 align= "center">Inicializando a aplicação</h2>
 
