@@ -15,7 +15,7 @@ module.exports = {
 
   async execute(interaction) {
     await interaction.deferReply();
-    
+
     const { member, options } = interaction;
     const user = options.getMentionable("usuário");
 

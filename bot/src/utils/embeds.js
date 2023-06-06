@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 
 class Embeds {
-  beeImage = "https://th.bing.com/th/id/OIP.PzG7httR7rdbkBzHIkEF2QAAAA?pid=ImgDet&rs=1";
+  wallEImage = "https://images.unsplash.com/photo-1589254065909-b7086229d08c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80";
 
   songInfo(name, thumbnail, url, views, formattedDuration) {
 
@@ -31,7 +31,7 @@ class Embeds {
       .addFields({ name: " ", value: " " })
       .addFields({ name: " ", value: " " })
       .addFields({ name: " ", value: playlist })
-      .setFooter({ text: "Bee", iconURL: this.beeImage });
+      .setFooter({ text: "Wall-e", iconURL: this.wallEImage });
   }
 
   miscellaneous(gif, description) {
@@ -40,7 +40,7 @@ class Embeds {
       .setColor(0xFEE75C)
       .setDescription(description)
       .setImage(gif)
-      .setFooter({ text: "Bee", iconURL: this.beeImage });
+      .setFooter({ text: "Wall-e", iconURL: this.wallEImage });
   }
 }
 
