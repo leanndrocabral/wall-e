@@ -7,7 +7,7 @@
 <p>Primeiro clone o repositório utilizando o comando:</p>
 
 ```bash
-$ git clone https://github.com/leanndrocabral/wall-e-discordjs.git
+$ git clone https://github.com/leanndrocabral/wall-e.git
 ```
 
 <p>Abra o repositório e no terminal instale as depedências utilizando:</p>
