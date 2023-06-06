@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Smile {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Cry {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Dance {
+  id      Int     @id @default(autoincrement())
+  gif_url String
+  single  Boolean @default(false)
+}
+
+model Slap {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Hug {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Pat {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Punch {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Blush {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
+
+model Kiss {
+  id      Int    @id @default(autoincrement())
+  gif_url String
+}
