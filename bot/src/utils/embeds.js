@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 
 class Embeds {
-  wallEImage = "https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80";
+  wallEImage = "https://avatarfiles.alphacoders.com/197/197092.jpg";
 
   songInfo(name, thumbnail, url, views, formattedDuration) {
 
@@ -14,7 +14,7 @@ class Embeds {
         { name: "**Views:**", value: views.toString(), inline: true },
         { name: "**Duração:**", value: formattedDuration, inline: true }
       )
-      .setFooter({ text: "Bee", iconURL: this.beeImage });
+      .setFooter({ text: "Wall-e", iconURL: this.beeImage });
   }
 
   queueInfo(name, thumbnail, url, queue, index = 0) {
