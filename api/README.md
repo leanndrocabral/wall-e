@@ -5,7 +5,7 @@
 <p>Esta é a API ao qual o Bee Bot usa para puxar os gifs para os comandos de roleplay. Esta é a url base:</p>
 
 ```
- https://bee-gifs.vercel.app/gifs/
+ https://walleapi.vercel.app/gifs
 ```
 
 <p>Quase todos os endpoints são idênticos, tanto em requesição, quanto em resposta.</p>
@@ -27,7 +27,7 @@
 <p>Exemplos:</p>
 
 
-<p>URL: <a href="https://bee-gifs.vercel.app/gifs/smile" target="_blank">https://bee-gifs.vercel.app/gifs/smile</a></p>
+<p>URL: <a href="https://walleapi.vercel.app/gifs/smile" target="_blank">https://walleapi.vercel.app/gifs/smile</a></p>
 
 ```json
 # Requisição no endpoint smile
@@ -56,7 +56,7 @@
 
 <br/>
 
-<p>URL: <a href="https://bee-gifs.vercel.app/gifs/dance" target="_blank">https://bee-gifs.vercel.app/gifs/dance</a></p>
+<p>URL: <a href="https://walleapi.vercel.app/gifs/dance" target="_blank">https://walleapi.vercel.app/gifs/dance</a></p>
 
 ```json
 # Requisição no endpoint dance
@@ -104,7 +104,7 @@
 
 <p>Exemplos:</p>
 
-<p>URL: <a href="https://bee-gifs.vercel.app/gifs/smile/1" target="_blank">https://bee-gifs.vercel.app/gifs/smile/1</a></p>
+<p>URL: <a href="https://walleapi.vercel.app/gifs/smile/1" target="_blank">https://walleapi.vercel.app/gifs/smile/1</a></p>
 
 ```json
 # Requisição no endpoint smile
@@ -116,7 +116,7 @@
 
 <br/>
 
-<p>URL: <a href="https://bee-gifs.vercel.app/gifs/dance/1/true" target="_blank">https://bee-gifs.vercel.app/gifs/dance/1/true</a></p>
+<p>URL: <a href="https://walleapi.vercel.app/gifs/dance/1/true" target="_blank">https://walleapi.vercel.app/gifs/dance/1/true</a></p>
 
 ```json
 # Requisição no endpoint dance
