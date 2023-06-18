@@ -1,5 +1,4 @@
 class Presence {
-
   async verifyPresence(command, interaction) {
     const { member, client, guildId } = interaction;
 

@@ -25,7 +25,7 @@ module.exports = {
       pagination.queuePagination(interaction, message, queue);
 
     } catch (error) {
-      await interaction.reply("Não há nenhuma música na fila.");
+      await interaction.editReply("Não há nenhuma música na fila.");
     }
   },
 };
