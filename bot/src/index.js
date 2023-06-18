@@ -35,7 +35,7 @@ client.distube = new DisTube(client, {
   leaveOnEmpty: true,
   youtubeCookie: COOKIE,
   plugins: [new YtDlpPlugin()],
-}).setMaxListeners(2);
+}).setMaxListeners(5);
 
 const commands = [];
 client.commands = new Collection();

@@ -22,11 +22,11 @@ module.exports = {
 
     } else if (queue.volume > value) {
       queue.setVolume(value);
-      await interaction.reply(`Volume diminuído para ${value}%.`);
+      await interaction.reply(`Volume alterado para ${value}%.`);
 
     } else {
       queue.setVolume(value);
-      await interaction.reply(`Volume aumentado para ${value}%.`);
+      await interaction.reply(`Volume alterado para ${value}%.`);
     }
   },
 };
