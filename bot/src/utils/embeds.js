@@ -44,20 +44,13 @@ class Embeds {
         .setFooter({text: 'Wall-e', iconURL: this.wallEImage});
   }
 
-  temperature({temp_c, temp_f, name, region, country, localtime, condition}) {
+  temperature({temp_c, temp_f, name, region, country, condition}) {
     const replaceImage = condition.icon.replace('//', 'https://');
-    const localeDate = new Date(localtime).toLocaleString('pt-br');
-
-    const date = localeDate.slice(0, 10);
-    const time = localeDate.slice(12, 20);
 
     return new EmbedBuilder()
         .setColor(0x5865f2)
         .setTitle(`${name} - ${region}, ${country}`)
         .setThumbnail(replaceImage)
-        .addFields({name: ' ', value: 'Horário Local:'})
-        .addFields({name: 'Data', value: date, inline: true})
-        .addFields({name: 'Horário', value: time, inline: true})
         .addFields({name: ' ', value: 'Temperatura:'})
         .addFields({
           name: 'Celcius',
