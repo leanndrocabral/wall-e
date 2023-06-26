@@ -3,7 +3,6 @@ const {EmbedBuilder} = require('discord.js');
 class Embeds {
   wallEImage = 'https://avatarfiles.alphacoders.com/197/197092.jpg';
 
-
   songInfo(name, thumbnail, url, views, formattedDuration) {
     return new EmbedBuilder()
         .setColor(0xed4245)
