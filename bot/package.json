@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts,.tsx ."
   },
   "author": "",
   "license": "ISC",
@@ -18,9 +19,14 @@
     "discord.js": "^14.11.0",
     "distube": "^4.0.4",
     "dotenv": "^16.0.3",
+    "eslint-config-prettier": "^8.8.0",
     "ffmpeg-static": "^4.4.1",
     "libsodium-wrappers": "^0.7.11",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-google": "^0.14.0"
   }
 }

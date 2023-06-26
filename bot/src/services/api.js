@@ -1,7 +1,11 @@
-const axios = require("axios").default;
+const axios = require('axios').default;
 
-const instace = axios.create({
-  baseURL: "https://walleapi.vercel.app/gifs"
-})
+module.exports = {
+  gifs: axios.create({
+    baseURL: 'https://walleapi.vercel.app/gifs',
+  }),
 
-module.exports = instace;
+  temperature: axios.create({
+    baseURL: 'http://api.weatherapi.com/v1',
+  }),
+};
