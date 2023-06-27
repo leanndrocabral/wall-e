@@ -21,6 +21,7 @@
     "dotenv": "^16.0.3",
     "eslint-config-prettier": "^8.8.0",
     "ffmpeg-static": "^4.4.1",
+    "gpt-3-encoder": "^1.1.4",
     "libsodium-wrappers": "^0.7.11",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.22"

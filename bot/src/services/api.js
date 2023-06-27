@@ -8,4 +8,11 @@ module.exports = {
   temperature: axios.create({
     baseURL: 'http://api.weatherapi.com/v1',
   }),
+
+  gpt: axios.create({
+    baseURL: 'https://api.openai.com/v1',
+    headers: {
+      authorization: `Bearer ${process.env.OPENIA_KEY}`,
+    },
+  }),
 };

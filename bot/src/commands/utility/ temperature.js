@@ -1,5 +1,4 @@
 const {SlashCommandBuilder} = require('discord.js');
-const embedGen = require('../../utils/embeds');
 const instance = require('../../services/api');
 
 module.exports = {
@@ -20,13 +19,14 @@ module.exports = {
       const city = interaction.options.getString('cidade');
       const search = city.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-      const response = await instance.temperature.get(
+      const {data} = await instance.temperature.get(
           `/current.json?key=${process.env.TEMPERATURE_KEY}&q=${search}`,
       );
-      const {current, location} = response.data;
+      const {current, location} = data;
 
-      const embed = embedGen.temperature({...location, ...current});
-      await interaction.editReply({embeds: [embed]});
+      await interaction.editReply(
+          `Atualmente está fazendo **${current.temp_c} °C** em **${location.name}, ${location.region}.**`,
+      );
     } catch (error) {
       await interaction.editReply('Nenhum cidade foi encontrada.');
     }

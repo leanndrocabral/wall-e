@@ -24,8 +24,7 @@ class Presence {
 
       case clientVoiceChannel.channelId !== memberVoiceChannel.id:
         await interaction.reply(
-            `Não é possível utilizar este comando pois estou em outro 
-            canal de voz.`,
+            `Não é possível utilizar este comando pois estou em outro canal de voz.`,
         );
         break;
 

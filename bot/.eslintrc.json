@@ -10,6 +10,6 @@
     },
     "rules": {
         "require-jsdoc" : 0,
-        "camelcase": ["error", {"allow": ["temp_f", "temp_c"]}]
+        "camelcase": ["error", {"allow": ["temp_f", "temp_c", "max_tokens"]}]
     }
 }

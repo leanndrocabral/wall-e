@@ -45,27 +45,6 @@ class Embeds {
         .setImage(gif)
         .setFooter({text: 'Wall-e', iconURL: this.wallEImage});
   }
-
-  temperature({temp_c, temp_f, name, region, country, condition}) {
-    const replaceImage = condition.icon.replace('//', 'https://');
-
-    return new EmbedBuilder()
-        .setColor(0x5865f2)
-        .setTitle(`${name} - ${region}, ${country}`)
-        .setThumbnail(replaceImage)
-        .addFields({name: ' ', value: 'Temperatura:'})
-        .addFields({
-          name: 'Celcius',
-          value: `${Math.round(temp_c)} °C`,
-          inline: true,
-        })
-        .addFields({
-          name: 'Fahrenheit ',
-          value: `${Math.round(temp_f)} °F`,
-          inline: true,
-        })
-        .setFooter({text: 'Wall-e', iconURL: this.wallEImage});
-  }
 }
 
 const embedGen = new Embeds();
