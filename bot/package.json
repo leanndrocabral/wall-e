@@ -1,6 +1,6 @@
 {
-  "name": "bee-bot",
-  "version": "1.0.0",
+  "name": "wall-e",
+  "version": "2.0.0",
   "description": "Um bot de discord",
   "main": "src/index.js",
   "scripts": {

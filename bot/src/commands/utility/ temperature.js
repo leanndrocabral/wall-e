@@ -1,10 +1,10 @@
-const {SlashCommandBuilder} = require('discord.js');
+const {SlashCommandBuilder, codeBlock} = require('discord.js');
 const instance = require('../../services/api');
 
 module.exports = {
   data: new SlashCommandBuilder()
       .setName('temperature')
-      .setDescription('Veja a temperatura atual em sua cidade.')
+      .setDescription('Veja a temperatura atual.')
       .addStringOption((options) =>
         options
             .setName('cidade')
@@ -23,10 +23,10 @@ module.exports = {
           `/current.json?key=${process.env.TEMPERATURE_KEY}&q=${search}`,
       );
       const {current, location} = data;
-
-      await interaction.editReply(
-          `Atualmente está fazendo **${current.temp_c} °C** em **${location.name}, ${location.region}.**`,
+      const codeblock = codeBlock(
+          `Atualmente está fazendo ${current.temp_c} °C em ${location.name} - ${location.region}.`,
       );
+      await interaction.editReply(codeblock);
     } catch (error) {
       await interaction.editReply('Nenhum cidade foi encontrada.');
     }

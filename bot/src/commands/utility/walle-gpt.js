@@ -5,7 +5,7 @@ const instance = require('../../services/api');
 module.exports = {
   data: new SlashCommandBuilder()
       .setName('walle-gpt')
-      .setDescription('Converse com o Wall-e')
+      .setDescription('Converse ou faça perguntas para o Wall-e')
       .addStringOption((options) =>
         options
             .setName('texto')
@@ -35,3 +35,4 @@ module.exports = {
     }
   },
 };
+

@@ -3,7 +3,7 @@ const embedGen = require('./embeds');
 class Pagination {
   async queuePagination(interaction, message, queue) {
     const {client} = interaction;
-    const {name, thumbnail, url} = queue[0];
+    const {name, thumbnail, url} = queue.shift();
 
     const collectorFilter = (reaction, user) => {
       return (

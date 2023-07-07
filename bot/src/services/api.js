@@ -15,4 +15,11 @@ module.exports = {
       authorization: `Bearer ${process.env.OPENIA_KEY}`,
     },
   }),
+
+  translate: axios.create({
+    baseURL: 'https://api.nlpcloud.io/v1/nllb-200-3-3b',
+    headers: {
+      authorization: `Token ${process.env.NLP_KEY}`,
+    },
+  }),
 };

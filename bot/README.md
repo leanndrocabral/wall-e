@@ -28,29 +28,17 @@ $ yarn add
 <a href="https://discord.com/developers/applications" target="_blank">Discord Developers</a> e crie sua aplicação, instale a extensão <a href="https://chrome.google.com/webstore/detail/open-cookiestxt/gdocmgbfkjnnpapoeobnolbbkoibbcif" target="_blank">Get Cookies.txt</a> no seu navegador. Em seguida na raiz do repositório, crie um arquivo chamado <span style="color:#0099ff">.dotenv</span>, nele irá conter as seguintes variáveis:</p>
 
 ```
-# Acessando a aba OAuth2 no site Discord Developers
+.env
+
+# Acesse a aba OAuth2 no site Discord Developers
 CLIENT_ID= 
 
-# Acessando a aba Bot no site Discord Developers
+# Acesse a aba Bot no site Discord Developers
 DISCORD_TOKEN=
 
-# Abra a extensão no site Youtube, copie a chave e o valor de "__Secure-3PSID"
+# Abra a extensão no site Youtube, selecione a opção "HTTP Header (experimental)" e copie o valor
 YT_COOKIE=
 ```
-
-<br/>
-
-<p>Por fim, você terá algo parecido com isto: </p>
-
-```
-CLIENT_ID="1094097123118698577"
-
-DISCORD_TOKEN="MTA5NDA5NzEyMzExODY5ODU3Nw.GAllZ5.755jRj9kYT4aqTMO8f7UhUalVEQwi63lbt1CFg"
-
-YT_COOKIE="__Secure-3PSID=__Secure-3PSID=WAip0R3AmycJ_kv-VJN8DwoNrFiPo20O6dTXAMhabCMoqJ93_Rizs42mCN3mZnWNSiT3Dw."
-```
-
-<p><small>Obs: Estas variáves possuem valores fictícios, apenas para fins de demonstração.</small></p>
 
 <br/>
 
@@ -68,3 +56,24 @@ $ yarn dev
 
 <p>Agora é ser feliz e ouvir suas musiquinhas no Discord 😁😊.</p>
 
+<br/>
+
+<h2 align= "center">Outras funcionalidades</h2>
+
+<br/>
+
+<p> Caso queira utilizar algumas funções como os comandos de <span style="color:#0099ff">gpt</span>, <span style="color:#0099ff">temperature</span> ou <span style="color:#0099ff">translate</span> insira as seguintes variáveis de ambiente: 
+</p>
+
+```
+.env
+
+# Crie uma conta no site https://www.weatherapi.com/ e após logar copie o valor de API Key
+TEMPERATURE_KEY=
+
+# Crie uma conta no site https://platform.openai.com/, clique no seu usuário no canto superior direito e vá na opção View API Keys
+OPENIA_KEY= 
+
+# Crie uma conta no site https://nlpcloud.com/ e após logar copie o valor de Here is your API key
+NLP_KEY=
+```
