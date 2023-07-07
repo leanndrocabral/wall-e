@@ -32,7 +32,7 @@ module.exports = {
             views,
             formattedDuration,
         );
-        await interaction.followUp({embeds: [embed]});
+        await interaction.editReply({embeds: [embed]});
       });
 
       interaction.client.distube.on('addList', async (queue, playlist) => {
@@ -46,7 +46,7 @@ module.exports = {
             views,
             formattedDuration,
         );
-        await interaction.followUp({embeds: [embed]});
+        await interaction.editReply({embeds: [embed]});
       });
     } catch (error) {
       await interaction.reply('Nenhum resultado encontrado.');
