@@ -14,8 +14,6 @@ module.exports = {
 
   async execute(interaction) {
     try {
-      await interaction.deferReply();
-
       const {channel, member, options, client} = interaction;
       const linkOrName = options.getString('link-ou-nome');
 
@@ -23,7 +21,7 @@ module.exports = {
         textChannel: channel,
         member,
       });
-      await interaction.editReply('Adicionando...');
+      await interaction.reply('Adicionando...');
 
       interaction.client.distube.on('addSong', async (queue, song) => {
         const {name, thumbnail, url, views, formattedDuration} = song;
@@ -34,7 +32,7 @@ module.exports = {
             views,
             formattedDuration,
         );
-        await interaction.editReply({embeds: [embed]});
+        await interaction.followUp({embeds: [embed]});
       });
 
       interaction.client.distube.on('addList', async (queue, playlist) => {
@@ -48,7 +46,7 @@ module.exports = {
             views,
             formattedDuration,
         );
-        await interaction.editReply({embeds: [embed]});
+        await interaction.followUp({embeds: [embed]});
       });
     } catch (error) {
       await interaction.editReply('Nenhum resultado encontrado.');
