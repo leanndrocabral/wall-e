@@ -49,7 +49,7 @@ module.exports = {
         await interaction.followUp({embeds: [embed]});
       });
     } catch (error) {
-      await interaction.editReply('Nenhum resultado encontrado.');
+      await interaction.reply('Nenhum resultado encontrado.');
     }
   },
 };
