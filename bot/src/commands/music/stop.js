@@ -7,9 +7,7 @@ module.exports = {
 
   async execute(interaction) {
     const {client, guildId} = interaction;
-
     client.distube.voices.leave(guildId);
-
     await interaction.reply('Saindo do canal de voz.');
   },
 };

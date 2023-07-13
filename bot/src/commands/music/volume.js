@@ -12,21 +12,20 @@ module.exports = {
       ),
 
   async execute(interaction) {
-    const {client, guildId, options} = interaction;
+    try {
+      const {guildId, options} = interaction;
+      const value = options.getInteger('valor');
 
-    const value = options.getInteger('valor');
-    const queue = await client.distube.getQueue(guildId);
-
-    if (value < 0 || value > 100) {
-      await interaction.reply(
-          'Valor inválido! Escolha um inteiro entre 0 e 100.',
-      );
-    } else if (queue.volume > value) {
-      queue.setVolume(value);
-      await interaction.reply(`Volume alterado para ${value}%.`);
-    } else {
-      queue.setVolume(value);
-      await interaction.reply(`Volume alterado para ${value}%.`);
+      if (value < 0 || value > 100) {
+        await interaction.reply(
+            'Valor inválido! Escolha um inteiro entre 0 e 100.',
+        );
+      } else {
+        interaction.client.distube.setVolume(guildId, value);
+        await interaction.reply(`Volume alterado para ${value}%.`);
+      }
+    } catch (error) {
+      await interaction.reply('Não há nenhuma música sendo reproduzida.');
     }
   },
 };

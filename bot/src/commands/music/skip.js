@@ -22,7 +22,7 @@ module.exports = {
       );
       await interaction.reply({content: 'Pulando...', embeds: [embed]});
     } catch (error) {
-      await interaction.reply('Não há próxima música na fila.');
+      await interaction.reply('Não há próxima música na fila de reprodução.');
     }
   },
 };

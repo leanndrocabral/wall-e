@@ -15,6 +15,7 @@ const {DisTube} = require('distube');
 const {YtDlpPlugin} = require('@distube/yt-dlp');
 
 const presence = require('./utils/presence');
+const embedGen = require('./utils/embeds');
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -76,7 +77,6 @@ client.on('ready', () => {
     name: 'Tomando um café...',
     type: ActivityType.Playing,
   });
-
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -93,6 +93,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     'resume',
     'skip',
     'stop',
+    'volume',
   ];
 
   const commandName = interaction.commandName;
@@ -108,5 +109,32 @@ client.on(Events.InteractionCreate, async (interaction) => {
     console.error(error);
   }
 });
-
 client.login(TOKEN);
+
+client.distube.on('empty', (message) => message.textChannel.send('O canal está vazio. Saindo do canal'));
+
+client.distube.on('addSong', async (message, song) => {
+  const {name, thumbnail, url, views, formattedDuration} = song;
+  const embed = embedGen.songInfo(
+      name,
+      thumbnail,
+      url,
+      views,
+      formattedDuration,
+  );
+  message.textChannel.send({content: 'Adicionando...', embeds: [embed]});
+});
+
+client.distube.on('addList', async (message, playlist) => {
+  const views = playlist.songs.reduce((acc, cur) => cur.views + acc, 0);
+  const {name, thumbnail, url, formattedDuration} = playlist;
+
+  const embed = embedGen.songInfo(
+      name,
+      thumbnail,
+      url,
+      views,
+      formattedDuration,
+  );
+  message.textChannel.send({content: 'Adicionando...', embeds: [embed]});
+});

@@ -25,6 +25,6 @@ module.exports = {
     const {data} = await instance.gifs.get(`/punch/${randomId}`);
 
     const embed = embedGen.miscellaneous(data.gif_url, description);
-    await interaction.reply({embeds: [embed]});
+    await interaction.editReply({embeds: [embed]});
   },
 };
